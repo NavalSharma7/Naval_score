@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_score_a"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/outline_add_black_20" />
 
     <ImageButton
         android:id="@+id/btn_minus"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_plus"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/presence_busy" />
+        app:srcCompat="@drawable/outline_remove_black_20" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -99,12 +99,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1 Point"
-            tools:layout_editor_absoluteX="169dp"
-            tools:layout_editor_absoluteY="554dp" />
+             />
 
         <RadioButton
             android:id="@+id/rb_two_point"
-            android:layout_width="94dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2 Points" />
 
