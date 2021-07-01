@@ -1,119 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
     <TextView
         android:id="@+id/tv_team_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="50dp"
-        android:gravity="center_horizontal"
         android:padding="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_team_b"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/tv_team_b"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="@string/team_a_name" />
+        android:textColor="@color/black"
+        android:text="Raptors" />
 
     <TextView
         android:id="@+id/tv_team_b"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="50dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:textColor="@color/black"
         android:padding="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@id/tv_team_a"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_team_a"
-        app:layout_constraintTop_toTopOf="@id/tv_team_a"
-        tools:text="@string/team_b_name" />
-
+        android:text="Lakers" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/tv_score_a"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tv_team_a"
-        app:layout_constraintStart_toStartOf="@+id/tv_team_a"
-        app:layout_constraintTop_toBottomOf="@+id/tv_team_a"
-        app:layout_constraintVertical_bias="0.0" />
+         />
 
     <TextView
         android:id="@+id/tv_score_b"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginLeft="50dp"
         android:layout_height="wrap_content"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display4"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_score_a"
-        app:layout_constraintEnd_toEndOf="@+id/tv_team_b"
-        app:layout_constraintStart_toStartOf="@+id/tv_team_b"
-        app:layout_constraintTop_toTopOf="@+id/tv_score_a" />
-
+       />
+    </LinearLayout>
     <ImageButton
         android:id="@+id/btn_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_score_a"
-        app:layout_constraintVertical_bias="0.0"
+        android:clickable="true"
+        android:onClick="onClickPlus"
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/outline_add_black_20" />
 
     <ImageButton
         android:id="@+id/btn_minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_plus"
-        app:layout_constraintVertical_bias="0.0"
+        android:clickable="true"
+        android:padding="10dp"
+        android:onClick="onClickMinus"
         app:srcCompat="@drawable/outline_remove_black_20" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_minus"
-        app:layout_constraintVertical_bias="0.0" >
+        android:id="@+id/rg_points"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp">
 
         <RadioButton
             android:id="@+id/rb_one_point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1 Point"
+            android:textColor="@color/black"
              />
 
         <RadioButton
             android:id="@+id/rb_two_point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2 Points" />
+            android:text="2 Points"
+            android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/rb_three_points"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="3 Points" />
     </RadioGroup>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
