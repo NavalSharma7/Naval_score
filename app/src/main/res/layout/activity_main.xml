@@ -1,163 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--Main linear layout with vertical orientation for diffrent components on the screen-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="100"
-    android:gravity="center_horizontal"
-    android:orientation="horizontal">
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        app:cardBackgroundColor="@color/cardview_dark_background"
-        android:layout_height="wrap_content"
-        android:layout_weight="50"
-        >
-    <TextView
-        android:id="@+id/tv_team_a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:padding="20dp"
-        android:text="Raptors" />
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
+
+    <!--    linear layout for the teams names which will have cardviews -->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="50"
-        app:cardBackgroundColor="@color/cardview_dark_background"
-       >
-    <TextView
-        android:id="@+id/tv_team_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:text="Lakers" />
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            app:cardBackgroundColor="@color/team_a_color">
+            <!--   team A textview-->
+            <TextView
+                android:id="@+id/tv_team_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:padding="20dp"
+                android:text="@string/team_a_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            app:cardBackgroundColor="@color/team_b_color">
+            <!--    Team B textview -->
+            <TextView
+                android:id="@+id/tv_team_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:padding="20dp"
+                android:text="@string/team_b_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!--    toggle button to identify which team is selected-->
     <ToggleButton
         android:id="@+id/tb_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:gravity="center"
         android:layout_marginTop="15dp"
-        android:padding="10dp"
+        android:minWidth="96dp"
+        android:minHeight="96dp"
         android:background="@drawable/toggle_selector"
+        android:gravity="center"
         android:textOff=""
-        android:textOn=""/>
+        android:textOn="" />
+    <!--    linear layout for team A and team B score values  in cardview-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:weightSum="100"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="100">
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            app:cardBackgroundColor="@color/cardview_shadow_start_color"
-            >
-    <TextView
-        android:id="@+id/tv_score_a"
-        android:layout_width="wrap_content"
-        android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
-         />
+            app:cardBackgroundColor="@color/team_a_color">
+            <!--   team A score textview -->
+            <TextView
+                android:id="@+id/tv_score_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="@string/zero_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                android:textColor="@color/white" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
             android:layout_marginLeft="10dp"
-            app:cardBackgroundColor="@color/cardview_shadow_start_color"
-            >
-    <TextView
-        android:id="@+id/tv_score_b"
-        android:layout_width="wrap_content"
-        android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
-       />
+            android:layout_weight="50"
+            app:cardBackgroundColor="@color/team_b_color">
+            <!--            team B score textview-->
+            <TextView
+                android:id="@+id/tv_score_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="@string/zero_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                android:textColor="@color/white" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <!--    Plus button to add to the score-->
     <ImageButton
         android:id="@+id/btn_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
         android:clickable="true"
         android:onClick="onClickPlus"
-        android:padding="10dp"
-        android:layout_gravity="center_horizontal"
-        app:srcCompat="@drawable/outline_add_black_20" />
-
+        android:padding="20dp"
+        app:srcCompat="@drawable/ic_plus" />
+    <!--minus button to deduct the score -->
     <ImageButton
         android:id="@+id/btn_minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:clickable="true"
-        android:padding="10dp"
         android:onClick="onClickMinus"
-        app:srcCompat="@drawable/outline_remove_black_24" />
-
+        android:padding="20dp"
+        app:srcCompat="@drawable/ic_remove" />
+    <!--//  RAdio group which will have three radio buttons with diffrent point values-->
     <RadioGroup
+        android:id="@+id/rg_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rg_points"
         android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="30dp"
+        android:checkedButton="@id/rb_one_point"
+        android:gravity="center_horizontal">
 
         <RadioButton
             android:id="@+id/rb_one_point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1 Point"
-            android:textSize="30sp"
+            android:text="@string/points_one"
+            android:padding="10dp"
             android:textColor="@color/black"
-             />
+            android:buttonTint="@color/teal_700"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/rb_two_point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2 Points"
-            android:textSize="30sp"
-            android:textColor="@color/black"/>
+            android:text="@string/points_two"
+            android:padding="10dp"
+            android:buttonTint="@color/teal_700"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/rb_three_points"
             android:layout_width="match_parent"
-            android:textColor="@color/black"
-            android:textSize="30sp"
             android:layout_height="wrap_content"
-            android:text="3 Points" />
+            android:text="@string/points_three"
+            android:padding="10dp"
+            android:buttonTint="@color/teal_700"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
     </RadioGroup>
-
 
 
 </LinearLayout>

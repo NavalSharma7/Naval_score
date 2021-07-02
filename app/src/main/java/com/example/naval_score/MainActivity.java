@@ -14,6 +14,8 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    // View variables
     private TextView teamAScore;
     private TextView teamBScore;
     private ToggleButton teamSwitch;
@@ -25,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // calling the init method to initialize the views
         init();
     }
 
     private void init() {
+        // initialize the views by using findviewbyid
         teamAScore = findViewById(R.id.tv_score_a);
         teamBScore = findViewById(R.id.tv_score_b);
         onePoint = findViewById(R.id.rb_one_point);
@@ -39,13 +43,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickPlus(View view) {
-
+        // select which team textview to use by checking if the toggle button is checked.
+        // get the current score from the appropriate text view
         String scoreStr = teamAScore.getText().toString();
-        if(teamSwitch.isChecked()){
-             scoreStr = teamBScore.getText().toString();
+        if (teamSwitch.isChecked()) {
+            scoreStr = teamBScore.getText().toString();
         }
         if (!TextUtils.isEmpty(scoreStr)) {
+            //parse int value of the score.
             int score = Integer.parseInt(scoreStr);
+            //change the score values according to the radio button selected.
             if (onePoint.isChecked()) {
                 score = score + 1;
             } else if (twoPoint.isChecked()) {
@@ -53,25 +60,35 @@ public class MainActivity extends AppCompatActivity {
             } else if (threePoint.isChecked()) {
                 score = score + 3;
             }
-            if(teamSwitch.isChecked()){
+            //set the updated value to the view depending on the toggle button..
+            if (teamSwitch.isChecked()) {
                 teamBScore.setText(String.format("%s", score));
-            }else{
-            teamAScore.setText(String.format("%s", score));}
+            } else {
+                teamAScore.setText(String.format("%s", score));
+            }
         } else {
-            if(teamSwitch.isChecked()){
-                teamBScore.setText("1");
-            }else{
-            teamAScore.setText("1");
-    }}
+            //set score as 0 if empty
+            if (teamSwitch.isChecked()) {
+                teamBScore.setText("0");
+            } else {
+                teamAScore.setText("0");
+            }
+        }
     }
 
     public void onClickMinus(View view) {
+        // select which team textview to use by checking if the toggle button is checked.
+        // get the current score from the appropriate text view
+
         String scoreStr = teamAScore.getText().toString();
-        if(teamSwitch.isChecked()){
+        if (teamSwitch.isChecked()) {
             scoreStr = teamBScore.getText().toString();
         }
         if (!TextUtils.isEmpty(scoreStr)) {
+            //parse int value of the score.
             int score = Integer.parseInt(scoreStr);
+
+            //change the score values according to the radio button selected.
             if (onePoint.isChecked()) {
                 score = score - 1;
             } else if (twoPoint.isChecked()) {
@@ -79,16 +96,25 @@ public class MainActivity extends AppCompatActivity {
             } else if (threePoint.isChecked()) {
                 score = score - 3;
             }
-            if(teamSwitch.isChecked()){
+            //change th value to 0 if it good below zero to avoid negative score
+            if(score <= 0)
+                score = 0;
+
+            //set the updated value to the view depending on the toggle button..
+
+            if (teamSwitch.isChecked()) {
                 teamBScore.setText(String.format("%s", score));
-            }else{
-            teamAScore.setText(String.format("%s", score));
-        }} else {
-            if(teamSwitch.isChecked()){
-                teamBScore.setText("1");
-            }else{
-            teamAScore.setText("1");
-        }
+            } else {
+                teamAScore.setText(String.format("%s", score));
+            }
+        } else {
+            //set score as 0 if empty
+
+            if (teamSwitch.isChecked()) {
+                teamBScore.setText("0");
+            } else {
+                teamAScore.setText("0");
+            }
         }
     }
 }

@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Naval_Score</string>
+    <string name="app_name">Naval Score</string>
     <string name="team_a_name">Raptors</string>
     <string name="team_b_name">Lakers</string>
-    <string name="points_one">! Pointer</string>
+    <string name="points_one">1 Pointer</string>
     <string name="points_two">2 Pointer</string>
     <string name="points_three">3 Pointer</string>
+    <string name="zero_text">0</string>
 </resources>
